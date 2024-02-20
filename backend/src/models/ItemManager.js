@@ -10,34 +10,24 @@ class ItemManager extends AbstractManager {
   // The C of CRUD - Create operation
 
   async create(item) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title) values (?)`,
       [item.title]
     );
-
-    // Return the ID of the newly inserted item
     return result.insertId;
   }
 
-  // The Rs of CRUD - Read operations
-
   async read(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
     );
 
-    // Return the first row of the result, which represents the item
     return rows[0];
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-
-    // Return the array of items
+    const [rows] = await this.database.query(`select * fromm ${this.table}`);
     return rows;
   }
 
