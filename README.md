@@ -11,15 +11,6 @@ Chaque fois que nous allons coder une feature, nous allons créer une branche sp
 De cette façon, vous pourrez aller de branches en branches pour voir le code que l'on a crée et aussi l'analyser.
 Je vous invite aussi à lire le Readme de chaque branche.
 
-## Prérequis
-
-Pour les utilisateurs/utilisatrices de windows **UNIQUEMENT**, vous denez saisir ces commandes dans le terminal de votre VS CODE :
-
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
-
 ## Installation
 
 Pour installer ce repo, il vous suffit de cloner ce repository sur votre ordinateur et de faire `npm install` afin d'installer les dépendances.
