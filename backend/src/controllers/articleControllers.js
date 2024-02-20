@@ -20,7 +20,6 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-  // do something
   const articleInfos = {
     title: req.body.title,
     content: req.body.content,
