@@ -41,5 +41,5 @@ Je vous conseille sur chaque branche de faire les commandes `npm install`et `npm
 
 Voici le détail de chacune des branches :
 
-- **step_01** : [**Express - Création du controller et manager pour la gestion des articles**](https://github.com/kpeset/blog_template_wcs/tree/step_01)
+- **step_01** : [**Express - Création du controller et manager pour la gestion des articles (create & read)**](https://github.com/kpeset/blog_template_wcs/tree/step_01)
 - **step_02** : [**Express - Création des middlewares (avec JOI)**](https://github.com/kpeset/blog_template_wcs/tree/step_02)
