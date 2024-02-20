@@ -13,7 +13,7 @@ Je vous invite aussi à lire le Readme de chaque branche.
 
 ## Prérequis
 
-Pour les utilisatrices de windows **UNIQUEMENT**, vous denez saisir ces commandes dans le terminal de votre VS CODE :
+Pour les utilisateurs/utilisatrices de windows **UNIQUEMENT**, vous denez saisir ces commandes dans le terminal de votre VS CODE :
 
 ```
 git config --global core.eol lf
