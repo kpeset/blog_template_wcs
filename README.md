@@ -77,6 +77,8 @@ const managers = [
 
 Nous commençons par importer `ArticleManager` et nous le mettons dans le tableau `managers`. C'est tout ! Notre fichier est prêt à être utilisé.
 
+<br />
+
 ### Le Controller
 Maintenant nous allons créer un fichier `ArticleControllers` dans le dossier `/backend/src/controllers`.
 Dans un premier temps, nous allons juste nous content d'écrire la structure de nos fonctions. Aucune logique dedans. Cela va juste nous servir à importer nos fonctions pour la création des routes :
@@ -120,6 +122,8 @@ Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu 
 - `req` pour la requête
 - `res` pour la réponse
 - `next` pour la gestion des erreurs
+
+<br />
 
 ### Les routes
 
