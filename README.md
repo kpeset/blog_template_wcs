@@ -4,7 +4,7 @@
 
 Dans cet atelier, nous allons commencer notre CRUD, en faisant des fonctions capables de rédiger et créer des articles.
 
-## Explication du code
+## Préambule
 
 ### Création de la base de données mySQL
 
@@ -29,6 +29,7 @@ INSERT INTO user (email, password, username) VALUES
 
 **RAPPEL : Pour pouvoir importer ces données dans notre BDD, le template nous propose de faire la commande **`npm run db:migrate`**.**
 
+## Organisation
 
 ### Le MVC
 
@@ -60,3 +61,19 @@ class ArticleManager extends AbstractManager {
 
 module.exports = ArticleManager;
 ```
+
+Il faut ensuite l'importer dans le fichier `tables.js` :
+
+```js
+// Import the manager modules responsible for handling data operations on the tables
+const ArticleManager = require("./models/ArticleManager");
+
+const managers = [
+    ArticleManager,
+];
+```
+
+Nous commençons par importer `ArticleManager` et nous le mettons dans le tableau `managers`. C'est tout ! Notre fichier est prêt à être utilisé.
+
+
+
