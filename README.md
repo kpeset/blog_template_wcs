@@ -62,7 +62,7 @@ class ArticleManager extends AbstractManager {
 module.exports = ArticleManager;
 ```
 
-**RAPPEL : ** Ici nous sommes en **Programmation Orientée Objet**. Nous avons crée une class `ArticleManager` qui va hériter des propriété du parent `AbstractManager`. Nous reviendrons sur cela plus tard.
+**RAPPEL :** Ici nous sommes en **Programmation Orientée Objet**. Nous avons crée une class `ArticleManager` qui va hériter des propriété du parent `AbstractManager`. Nous reviendrons sur cela plus tard.
 
 Il faut ensuite l'importer dans le fichier `tables.js` :
 
