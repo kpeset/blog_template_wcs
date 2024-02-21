@@ -323,9 +323,13 @@ const read = async (req, res, next) => {
 Nous avions besoin d'un id. Pour le récupérer nous allons utiliser les params de l'url avec `req.params`. 
 Pour configurer les params sur notre route, nous avons du l'écrire comme ceci dans `router.js` :
 
+<br />
+
 ```js
 router.get("/articles/:id/", articleControllers.read);
 ```
+
+<br />
 
 Les `:id` signifie que la route va devoir prendre en compte des `params` que l'on a appelé **id**. Ce sont ces params là que nous allons récupérer lorsque nous ferons la requête `http://localhost:3311/api/articles/34`.
 
