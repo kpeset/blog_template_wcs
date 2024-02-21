@@ -41,7 +41,7 @@ Afin de mieux organiser la logique de code, nous aurons alors :
 - un fichier `Router` pour y mettre toutes les routes
 
 <br />
-<br />
+
 ### Le Manager
 Bien qu'il n'y ai pas d'ordre à respecter lorsque l'on code, il me semble quand même plus logique de commencer à créer le **manager**.
 Dans un premier temps nous allons nous contenter d'écrire la structure du code :
