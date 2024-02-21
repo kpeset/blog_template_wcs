@@ -12,6 +12,8 @@ Avant toute chose, il était important d'avoir une base de données afin de pouv
 Depuis le template, nous pouvons directement éditer le fichier `schema.sql` qui se trouve dans le dossier **backend/database/**.
 Nous pouvons créer nos tables ainsi que quelques données. Exemples
 
+<br />
+
 ```sql
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,6 +28,8 @@ INSERT INTO user (email, password, username) VALUES
 ('ninon@gmail.com', 'middleages', 'Ninon'),
 ('windy@gmail.com', 'croquette', 'Windy');
 ```
+
+<br />
 
 **RAPPEL : Pour pouvoir importer ces données dans notre BDD, le template nous propose de faire la commande **`npm run db:migrate`**.**
 
@@ -87,6 +91,8 @@ Nous commençons par importer `ArticleManager` et nous le mettons dans le tablea
 Maintenant nous allons créer un fichier `ArticleControllers` dans le dossier `/backend/src/controllers`.
 Dans un premier temps, nous allons juste nous content d'écrire la structure de nos fonctions. Aucune logique dedans. Cela va juste nous servir à importer nos fonctions pour la création des routes :
 
+<br />
+
 ```js
 const browse = async (req, res, next) => {
   try {
@@ -120,6 +126,8 @@ module.exports = {
 };
 ```
 
+<br />
+
 Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu utiliser le système de promesses `then / catch`. Encore une fois, c'est selon les préférences.
 
 **RAPPEL :** nos fonctions prennent obligatoirement trois paramètres :
@@ -134,17 +142,25 @@ Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu 
 Maintenant que tout est "prêt", nous pouvons créer nos routes dans le fichier `router.js`.
 La première étape est d'importer notre controller précédemment crée :
 
+<br />
+
 ```js
 const articleControllers = require("./controllers/articleControllers");
 ```
 
+<br />
+
 Nous pouvons maintenant créer nos routes en conséquence :
+
+<br />
 
 ```js
 router.get("/articles", articleControllers.browse);
 router.get("/articles/:id/", articleControllers.read);
 router.post("/articles", articleControllers.add);
 ```
+
+<br />
 
 Nous utilisons une méthode `http` sur notre router (ici `get` ou `post`). Cette fonction prend deux paramètres :
 - le path (exemple : `/articles`)
@@ -179,3 +195,25 @@ Cette fonction a plusieurs spécificités :
 - Elle utilise `await` pour attendre le résultat d'une requête SQL envoyée à la base de données par `this.database.query()`. 
 - Dans `query()` nous mettons alors notre requête sql.
 - La déstructuration de `[rows]` est utilisée pour extraire le premier élément de ce tableau, qui correspond aux lignes de la table qui sont ensuite retournées par la fonction. Cela permet de récupérer directement les données de la base de données.
+
+<br />
+
+Maintenant que la requête est prète, il ne nous reste plus qu'à écrire la logique dans la fonction `browser` de notre `ArticleControllers.js` :
+
+<br />
+
+```js
+const browse = async (req, res, next) => {
+  try {
+    const articles = await tables.article.readAll();
+    res.json(articles);
+  } catch (err) {
+    next(err);
+  }
+};
+```
+
+<br />
+
+
+
