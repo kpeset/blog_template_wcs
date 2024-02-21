@@ -47,6 +47,8 @@ Afin de mieux organiser la logique de code, nous aurons alors :
 Bien qu'il n'y ai pas d'ordre à respecter lorsque l'on code, il me semble quand même plus logique de commencer par créer le **manager**.
 Dans un premier temps nous allons nous contenter d'écrire la structure du code :
 
+<br />
+
 ```js
 const AbstractManager = require("./AbstractManager");
 
@@ -61,6 +63,8 @@ class ArticleManager extends AbstractManager {
 
 module.exports = ArticleManager;
 ```
+
+<br />
 
 **RAPPEL :** Ici nous sommes en **Programmation Orientée Objet**. Nous avons crée une class `ArticleManager` qui va hériter des propriété du parent `AbstractManager`. Nous reviendrons sur cela plus tard.
 
