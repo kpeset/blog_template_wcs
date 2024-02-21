@@ -6,8 +6,6 @@ Dans cet atelier, nous allons commencer notre CRUD, en faisant des fonctions cap
 
 ## Explication du code
 
-### Préambule
-
 ### Création de la base de données mySQL
 
 Avant toute chose, il était important d'avoir une base de données afin de pouvoir intéragir avec via notre serveur API.
