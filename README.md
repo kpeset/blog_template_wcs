@@ -150,3 +150,20 @@ Nous utilisons une méthode `http` sur notre router (ici `get` ou `post`). Cette
 
 ### Lister tous les articles
 
+Pour le moment, les différentes fonctions que nous avons crée ne servent à rien. Nous n'avons encore mis aucune logique dans le controller ou le manager.
+Il est temps d'y remédier !
+
+<br />
+
+Nous voulons ici lister tous nos articles qui sont présents dans la bdd. Si nous étions dans un terminal SQL nous aurions fait la commande `SELECT * FROM article;`.
+Et bien là c'est la même chose ! Comme nous l'avons vu dans les cours et live co, nous pouvons éxecuter des requêtes SQL dans du javascript à l'intérieur de notre `ArticleManager.js` :
+
+```js
+  async readAll() {
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+    return rows;
+  }
+```
+
+Ici nous avons crée une fonction `readAll`
+
