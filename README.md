@@ -347,6 +347,8 @@ Je vous invite à bien analyser la fonction `add` du controller et `create` du m
 
 **RAPPEL :** Par défaut, on ne peut pas envoyer un format `json` dans le body de notre requête. Il est important d'ajouter la ligne suivante dans `App.js` :
 
+<br />
+
 ```js
 app.use(express.json());
 ```
