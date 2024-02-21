@@ -215,5 +215,17 @@ const browse = async (req, res, next) => {
 
 <br />
 
+Dans cette fonction `browse`, nous utilisons la fonction `readAll()` précédement crée.
+La syntaxe `await tables.article.readAll()` peut être interprété de la façon suivante :
 
+_Dans le manager Article je veux exécuter la fonction readAll_
 
+Nous enregistrons le résultat de cette fonction dans `const articles` que nous afficherons au format `json` dans la réponse de notre requête :
+
+<br />
+
+```js
+    res.json(articles);
+```
+
+<br />
