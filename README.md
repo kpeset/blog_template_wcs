@@ -28,3 +28,37 @@ INSERT INTO user (email, password, username) VALUES
 ```
 
 **RAPPEL : Pour pouvoir importer ces données dans notre BDD, le template nous propose de faire la commande **`npm run db:migrate`**.**
+
+<br />
+<br />
+
+### Le MVC
+
+Le modèle MVC, pour **Modèle-Vue-Contrôleur**, est une architecture qui va nous permettre de développer notre API de manière organisée et modulaire. 
+Le "Modèle" représente la structure des données et la logique métier, la "Vue" correspond à l'affichage de ces données, et le "Contrôleur" fait le lien entre le modèle et la requête provenant du client.
+<br />
+Afin de mieux organiser la logique de code, nous aurons alors :
+- un fichier `Manager` par table qui contiendra nos requêtes SQL
+- un fichier `Controller` par table
+- un fichier `Router` pour y mettre toutes les routes
+
+<br />
+<br />
+### Le Manager
+Bien qu'il n'y ai pas d'ordre à respecter lorsque l'on code, il me semble quand même plus logique de commencer à créer le **manager**.
+Dans un premier temps nous allons nous contenter d'écrire la structure du code :
+
+```js
+const AbstractManager = require("./AbstractManager");
+
+class ArticleManager extends AbstractManager {
+  constructor() {
+    super({ table: "article" });
+  }
+
+  // Nous mettrons nos fonctions ici
+
+}
+
+module.exports = ArticleManager;
+```
