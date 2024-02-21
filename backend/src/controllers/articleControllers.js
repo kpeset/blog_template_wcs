@@ -38,18 +38,8 @@ const add = async (req, res, next) => {
   }
 };
 
-// const edit = async (req, res, next) => {
-//   // do something
-// };
-
-// const destroy = async (req, res, next) => {
-//   // do something
-// };
-
 module.exports = {
   browse,
   read,
   add,
-  // edit,
-  // destroy,
 };
