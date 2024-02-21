@@ -2,7 +2,7 @@ Patience ... Le README arrive ...
 
 En attendant voici un exercice :
 
-Vous allez faire en sorte qu'il y ai maintenant la possibilité de lister les utilisateurs et de pouvoir en créer.
+Vous allez faire en sorte qu'il y ai maintenant la possibilité de lister les utilisateurs (de la table user ! Vous êtes perdus ? Regardez le fichier schema.sql dans le dossier database !) et de pouvoir en créer.
 Donc vous allez devoir, je suppose, créer les deux routes, le controller, et le manager.
 
 Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment dans la step 01 !
