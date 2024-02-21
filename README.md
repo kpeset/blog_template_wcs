@@ -194,6 +194,7 @@ Cette fonction a plusieurs spécificités :
 - Cette fonction `readAll`, marquée par le mot-clé `async`, indique qu'elle s'exécute de manière `asynchrone`. 
 - Elle utilise `await` pour attendre le résultat d'une requête SQL envoyée à la base de données par `this.database.query()`. 
 - Dans `query()` nous mettons alors notre requête sql.
+- Nous avons `${this.table}` qui fait référence à la table du manager.
 - La déstructuration de `[rows]` est utilisée pour extraire le premier élément de ce tableau, qui correspond aux lignes de la table qui sont ensuite retournées par la fonction. Cela permet de récupérer directement les données de la base de données.
 
 <br />
@@ -256,5 +257,17 @@ Tout ce que nous avons à faire, c'est de créer notre fonction dans `ArticleMan
     );
     return rows;
   }
+```
+
+Dans un terminal MySQL, pour chercher un article selon son id (exemple l'id 34), nous aurions exécuté cette commande :
+
+```sql
+SELECT * FROM article WHERE id = 34;
+```
+
+Et bien là c'est pareil ! À la différence que nous voulons que l'id soit dynamique. Nous ne voulons pas uniquement afficher l'article qui a l'id 34 ! Nous voulons pouvoir aussi afficher l'article 92, 73 etc...
+
+```js
+      `select * from ${this.table} where id = ?`,
 ```
 
