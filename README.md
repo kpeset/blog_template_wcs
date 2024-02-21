@@ -29,8 +29,6 @@ INSERT INTO user (email, password, username) VALUES
 
 **RAPPEL : Pour pouvoir importer ces données dans notre BDD, le template nous propose de faire la commande **`npm run db:migrate`**.**
 
-<br />
-<br />
 
 ### Le MVC
 
