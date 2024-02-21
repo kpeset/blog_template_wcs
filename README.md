@@ -123,7 +123,14 @@ Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu 
 
 ### Les routes
 
-Maintenant que tout est "prêt", nous pouvons créer nos routes dans le fichier `router.js` :
+Maintenant que tout est "prêt", nous pouvons créer nos routes dans le fichier `router.js`.
+La première étape est d'importer notre controller précédemment crée :
+
+```js
+const articleControllers = require("./controllers/articleControllers");
+```
+
+Nous pouvons maintenant créer nos routes en conséquence :
 
 ```js
 router.get("/articles", articleControllers.browse);
