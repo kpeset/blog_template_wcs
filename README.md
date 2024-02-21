@@ -198,7 +198,7 @@ Cette fonction a plusieurs spécificités :
 
 <br />
 
-Maintenant que la requête est prète, il ne nous reste plus qu'à écrire la logique dans la fonction `browser` de notre `ArticleControllers.js` :
+Maintenant que la requête est prète, il ne nous reste plus qu'à écrire la logique dans la fonction `browser` de notre `articleControllers.js` :
 
 <br />
 
@@ -231,3 +231,30 @@ Nous enregistrons le résultat de cette fonction dans `const articles` que nous 
 <br />
 
 Notre route est maintenant totalement fonctionnelle !
+
+<br />
+
+### Lire un article selon son ID
+
+Maintenant que nous avons vu comment créer un controller/manager de A à Z, il est maintenant beaucoup plus facile de créer nos autre requêtes.
+Les choses qui vont varier sont :
+- les éléments que nous avons besoin pour exécuter une requête (ici un id)
+- la requête SQL
+
+<br />
+
+Tout ce que nous avons à faire, c'est de créer notre fonction dans `ArticleManager.js` qui permet de créer notre requête :
+
+<br />
+
+```js
+  async read(id) {
+    // do something
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ?`,
+      [id]
+    );
+    return rows;
+  }
+```
+
