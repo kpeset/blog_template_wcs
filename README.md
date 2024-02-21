@@ -114,5 +114,11 @@ module.exports = {
 };
 ```
 
+Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu utiliser le système de promesses `then / catch`. Encore une fois, c'est selon les préférences.
 
+**RAPPEL :** nos fonctions prennent obligatoirement trois paramètres :
+- `req` pour la requête
+- `res` pour la réponse
+- `next` pour la gestion des erreurs
 
+### Les routes
