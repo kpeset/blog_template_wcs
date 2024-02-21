@@ -345,6 +345,45 @@ Pour créer un article, nous allons encore une fois utiliser la même logique qu
 
 Je vous invite à bien analyser la fonction `add` du controller et `create` du manager.
 
+<br />
+
+```js
+
+// fonction add du controller
+
+const add = async (req, res, next) => {
+  const articleInfos = {
+    title: req.body.title,
+    content: req.body.content,
+    userId: req.body.userId,
+  };
+
+  try {
+    const result = await tables.article.create(articleInfos);
+    console.info(result);
+    res.status(200).json({
+      msg: "article enregistré avec succès",
+      status: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// fonction create du manager
+
+  async create(article) {
+    const [rows] = await this.database.query(
+      `INSERT INTO ${this.table} (title, content, user_id, creation_datetime) VALUES (?, ?, ?, NOW())`,
+      [article.title, article.content, article.userId]
+    );
+    return rows;
+  }
+
+```
+
+<br />
+
 **RAPPEL :** Par défaut, on ne peut pas envoyer un format `json` dans le body de notre requête. Il est important d'ajouter la ligne suivante dans `App.js` :
 
 <br />
