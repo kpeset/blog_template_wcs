@@ -146,3 +146,7 @@ Nous utilisons une méthode `http` sur notre router (ici `get` ou `post`). Cette
 - le path (exemple : `/articles`)
 - une fonction liée à un controller (exemple : la fonction `read` qui provient du `articleControllers`)
 
+## Explication du code
+
+### Lister tous les articles
+
