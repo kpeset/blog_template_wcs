@@ -38,8 +38,42 @@ const add = async (req, res, next) => {
   }
 };
 
+const update = async (req, res, next) => {
+  const articleInfos = {
+    title: req.body.title,
+    content: req.body.content,
+    id: req.params.id,
+  };
+
+  try {
+    const result = await tables.article.update(articleInfos);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "article introuvable" });
+    } else {
+      res.json({ msg: "article modifié avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const destroy = async (req, res, next) => {
+  try {
+    const result = await tables.article.destroy(req.params.id);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "article introuvable" });
+    } else {
+      res.json({ msg: "article supprimé avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   read,
   add,
+  update,
+  destroy,
 };

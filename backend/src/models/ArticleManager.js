@@ -11,7 +11,6 @@ class ArticleManager extends AbstractManager {
   }
 
   async read(id) {
-    // do something
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
@@ -23,6 +22,22 @@ class ArticleManager extends AbstractManager {
     const [rows] = await this.database.query(
       `INSERT INTO ${this.table} (title, content, user_id, creation_datetime) VALUES (?, ?, ?, NOW())`,
       [article.title, article.content, article.userId]
+    );
+    return rows;
+  }
+
+  async update(article) {
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET title=?, content=?, creation_datetime=NOW() WHERE id=?`,
+      [article.title, article.content, article.id]
+    );
+    return rows;
+  }
+
+  async destroy(id) {
+    const [rows] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id=?`,
+      [id]
     );
     return rows;
   }

@@ -26,6 +26,9 @@ router.post(
   articleControllers.add
 );
 
+router.put("/articles/:id", articleControllers.update);
+router.delete("/articles/:id", articleControllers.destroy);
+
 /* ************************************************************************* */
 
 module.exports = router;
