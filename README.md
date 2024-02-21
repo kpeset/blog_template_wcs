@@ -259,15 +259,22 @@ Tout ce que nous avons à faire, c'est de créer notre fonction dans `ArticleMan
   }
 ```
 
+<br />
+
 Dans un terminal MySQL, pour chercher un article selon son id (exemple l'id 34), nous aurions exécuté cette commande :
 
 ```sql
 SELECT * FROM article WHERE id = 34;
 ```
 
+<br />
+
 Et bien là c'est pareil ! À la différence que nous voulons que l'id soit dynamique. Nous ne voulons pas uniquement afficher l'article qui a l'id 34 ! Nous voulons pouvoir aussi afficher l'article 92, 73 etc...
+
+<br />
 
 ```js
       `select * from ${this.table} where id = ?`,
 ```
 
+<br />
