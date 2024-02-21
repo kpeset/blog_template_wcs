@@ -122,3 +122,16 @@ Ici nous avons utilisé une syntaxe `async / await`, néanmoins nous aurions pu 
 - `next` pour la gestion des erreurs
 
 ### Les routes
+
+Maintenant que tout est "prêt", nous pouvons créer nos routes dans le fichier `router.js` :
+
+```js
+router.get("/articles", articleControllers.browse);
+router.get("/articles/:id/", articleControllers.read);
+router.post("/articles", articleControllers.add);
+```
+
+Nous utilisons une méthode `http` sur notre router (ici `get` ou `post`). Cette fonction prend deux paramètres :
+- le path (exemple : `/articles`)
+- une fonction liée à un controller (exemple : la fonction `read` qui provient du `articleControllers`)
+
