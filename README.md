@@ -229,3 +229,5 @@ Nous enregistrons le résultat de cette fonction dans `const articles` que nous 
 ```
 
 <br />
+
+Notre route est maintenant totalement fonctionnelle !
