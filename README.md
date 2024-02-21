@@ -162,12 +162,16 @@ Il est temps d'y remédier !
 Nous voulons ici lister tous nos articles qui sont présents dans la bdd. Si nous étions dans un terminal SQL nous aurions fait la commande `SELECT * FROM article;`.
 Et bien là c'est la même chose ! Comme nous l'avons vu dans les cours et live co, nous pouvons éxecuter des requêtes SQL dans du javascript à l'intérieur de notre `ArticleManager.js` :
 
+<br />
+
 ```js
   async readAll() {
     const [rows] = await this.database.query(`select * from ${this.table}`);
     return rows;
   }
 ```
+
+<br />
 
 Cette fonction `readAll`, marquée par le mot-clé `async`, indique qu'elle s'exécute de manière `asynchrone`. Elle utilise `await` pour attendre le résultat d'une requête SQL envoyée à la base de données par `this.database.query()`. 
 Dans `query()` nous mettons alors notre requête sql.
