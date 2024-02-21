@@ -7,4 +7,12 @@ Donc vous allez devoir, je suppose, créer les deux routes, le controller, et le
 
 Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment dans la step 01 !
 
+Executer les routes sur Postman suffira (pas besoin de le faire côté React)
+
 Bon courage !
+
+PS : N'oubliez pas de faire les choses suivantes :
+
+- créer le .env dans le backend
+- npm run db:migrate
+- et npm run dev
