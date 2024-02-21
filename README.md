@@ -333,4 +333,21 @@ router.get("/articles/:id/", articleControllers.read);
 
 Les `:id` signifie que la route va devoir prendre en compte des `params` que l'on a appelé **id**. Ce sont ces params là que nous allons récupérer lorsque nous ferons la requête `http://localhost:3311/api/articles/34`.
 
+<br />
+
+### Création d'un article
+
+Pour créer un article, nous allons encore une fois utiliser la même logique que précédemment. Il y aura cependant quelques différences :
+
+- La méthode http `post` sera exécuter sur notre route
+- La requête SQL sera un `insert into`
+- Nous utiliserons le `body` plutôt que les `params`
+
+Je vous invite à bien analyser la fonction `add` du controller et `create` du manager.
+
+**RAPPEL :** Par défaut, on ne peut pas envoyer un format `json` dans le body de notre requête. Il est important d'ajouter la ligne suivante dans `App.js` :
+
+```js
+app.use(express.json());
+```
 
