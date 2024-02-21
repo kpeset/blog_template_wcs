@@ -165,5 +165,7 @@ Et bien là c'est la même chose ! Comme nous l'avons vu dans les cours et live 
   }
 ```
 
-Ici nous avons crée une fonction `readAll`
-
+Cette fonction `readAll`, marquée par le mot-clé `async`, indique qu'elle s'exécute de manière `asynchrone`. Elle utilise `await` pour attendre le résultat d'une requête SQL envoyée à la base de données par `this.database.query()`. 
+Dans `query()` nous mettons alors notre requête sql.
+La déstructuration de `[rows]` est utilisée pour extraire le premier élément de ce tableau, qui correspond aux lignes de la table qui sont ensuite retournées par la fonction. 
+Cela permet de récupérer directement les données de la base de données.
