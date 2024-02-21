@@ -44,7 +44,7 @@ Afin de mieux organiser la logique de code, nous aurons alors :
 <br />
 
 ### Le Manager
-Bien qu'il n'y ai pas d'ordre à respecter lorsque l'on code, il me semble quand même plus logique de commencer à créer le **manager**.
+Bien qu'il n'y ai pas d'ordre à respecter lorsque l'on code, il me semble quand même plus logique de commencer par créer le **manager**.
 Dans un premier temps nous allons nous contenter d'écrire la structure du code :
 
 ```js
@@ -74,6 +74,43 @@ const managers = [
 ```
 
 Nous commençons par importer `ArticleManager` et nous le mettons dans le tableau `managers`. C'est tout ! Notre fichier est prêt à être utilisé.
+
+### Le Controller
+Maintenant nous allons créer un fichier `ArticleControllers` dans le dossier `/backend/src/controllers`.
+Dans un premier temps, nous allons juste nous content d'écrire la structure de nos fonctions. Aucune logique dedans. Cela va juste nous servir à importer nos fonctions pour la création des routes :
+
+```js
+const browse = async (req, res, next) => {
+  try {
+    // do something
+  } catch (err) {
+    next(err);
+  }
+};
+
+const read = async (req, res, next) => {
+  try {
+    // do something
+  } catch (err) {
+    next(err);
+  }
+};
+
+const add = async (req, res, next) => {
+  try {
+    // do something
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+module.exports = {
+  browse,
+  read,
+  add,
+};
+```
 
 
 
