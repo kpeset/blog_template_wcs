@@ -278,3 +278,55 @@ Et bien là c'est pareil ! À la différence que nous voulons que l'id soit dyna
 ```
 
 <br />
+
+Ici nous avons mis un `?` pour que l'id soit dynamique. Ce `?` sera remplacé par les éléments qui sont dans le tableau qui suit la requête :
+
+<br />
+
+```js
+
+  `select * from ${this.table} where id = ?`,
+      [id]
+
+```
+
+<br />
+
+Dans notre tableau, nous avons mis un `id` qui va provenir des paramètres de la fonction que l'on va exécuter :
+
+<br />
+
+```js
+  async read(id)
+```
+
+<br />
+
+Maintenant nous pouvons ajouter la logique à la fonction du controller :
+
+<br />
+
+```js
+const read = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const article = await tables.article.read(id);
+    res.json(article);
+  } catch (err) {
+    next(err);
+  }
+};
+```
+
+<br />
+
+Nous avions besoin d'un id. Pour le récupérer nous allons utiliser les params de l'url avec `req.params`. 
+Pour configurer les params sur notre route, nous avons du l'écrire comme ceci dans `router.js` :
+
+```js
+router.get("/articles/:id/", articleControllers.read);
+```
+
+Les `:id` signifie que la route va devoir prendre en compte des `params` que l'on a appelé **id**. Ce sont ces params là que nous allons récupérer lorsque nous ferons la requête `http://localhost:3311/api/articles/34`.
+
+
