@@ -2,7 +2,7 @@
 
 ## Objectif de l'atelier
 
-Dans cet atelier, nous allons commencer notre CRUD, en faisant des fonctions capables de rédiger et créer des articles.
+Dans cet atelier, nous allons commencer notre CRUD, en faisant des fonctions capables de lire et créer des articles.
 
 ## Préambule
 
