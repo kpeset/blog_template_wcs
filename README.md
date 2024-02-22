@@ -11,6 +11,7 @@ Bon courage !
 
 PS : N'oubliez pas de faire les choses suivantes :
 
+- npm i
 - créer le .env dans le backend et le configurer :
 
 ```
