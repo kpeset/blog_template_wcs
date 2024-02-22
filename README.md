@@ -10,7 +10,6 @@ Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment
 Bon courage !
 
 PS : N'oubliez pas de faire les choses suivantes :
-ENCORE-PS : N'oubliez pas que la route est http://locahost:VOTRE_PORT/api/LE_PATH_DU_ROUTER
 
 - créer le .env dans le backend et le configurer :
 
@@ -25,3 +24,5 @@ FRONTEND_URL=http://localhost:3000
 
 - npm run db:migrate
 - et npm run dev
+
+ENCORE-PS : N'oubliez pas que la route est http://locahost:VOTRE_PORT/api/LE_PATH_DU_ROUTER
