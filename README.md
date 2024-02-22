@@ -2,7 +2,7 @@ Patience ... Le README arrive ...
 
 En attendant voici un exercice :
 
-Il faut avoir la possibilité de lister les utilisateurs (de la table user ! Vous êtes perdus ? Regardez le fichier schema.sql dans le dossier database !) et de pouvoir en créer.
+Il faut avoir la possibilité de lister les utilisateurs (de la table user ! Vous êtes perdus ? Regardez le fichier schema.sql dans le dossier database !) et de pouvoir en créer. Bonus : modifier et supprimer un user !
 Donc vous allez devoir, je suppose, créer les deux routes, le controller, et le manager.
 
 Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment dans la step 01 !
@@ -25,4 +25,3 @@ FRONTEND_URL=http://localhost:3000
 
 - npm run db:migrate
 - et npm run dev
-
