@@ -47,9 +47,17 @@ const validateArticleFields = (req, res, next) => {
         "string.empty": "Veuillez remplir le champ contenu",
       })
       .required(),
+    userId: Joi.number()
+      .min(1)
+      .max(400)
+      .messages({
+        "number.base": "Erreur lors de l'ajout de l'id",
+      })
+      .required(),
   });
 
   const { error } = articleSchema.validate(req.body);
+  console.error(error);
 
   if (error) {
     console.error(error.details[0].message);
