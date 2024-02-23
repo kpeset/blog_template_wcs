@@ -10,10 +10,11 @@ Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment
 Bon courage !
 
 PS : N'oubliez pas de faire les choses suivantes :
-ENCORE-PS : N'oubliez pas que la route est http://locahost:VOTRE_PORT/api/LE_PATH_DU_ROUTER
 
+- npm i
 - créer le .env dans le backend et le configurer :
 
+```
 APP_PORT=3311
 APP_SECRET=YOUR_APP_SECRET_KEY
 DB_HOST=localhost
@@ -22,6 +23,9 @@ DB_USER=VOTRE_NOM_D_UTILISATEUR_MYSQL
 DB_PASSWORD=VOTRE_MDP
 DB_NAME=blog_template_wcs
 FRONTEND_URL=http://localhost:3000
+```
 
 - npm run db:migrate
 - et npm run dev
+
+ENCORE-PS : N'oubliez pas que la route est http://locahost:VOTRE_PORT/api/LE_PATH_DU_ROUTER
