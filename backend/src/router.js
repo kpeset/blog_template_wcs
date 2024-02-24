@@ -8,6 +8,7 @@ const router = express.Router();
 
 // Import itemControllers module for handling item-related operations
 const articleControllers = require("./controllers/articleControllers");
+const userControllers = require("./controllers/userControllers");
 
 const articleMiddlewares = require("./middlewares/articleMiddlewares");
 
@@ -28,6 +29,9 @@ router.post(
 
 router.put("/articles/:id", articleControllers.update);
 router.delete("/articles/:id", articleControllers.destroy);
+
+router.get("/users", userControllers.browse);
+router.post("/users", userControllers.add);
 
 /* ************************************************************************* */
 
