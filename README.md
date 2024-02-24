@@ -94,4 +94,4 @@ Nous allons maintenant faire un middleware pour vérifier les champs lors de la 
 - un titre est obligatoire et doit contenir au minimum 5 caractères et maximum 10 caractères
 - un contenu est obligatoire et doit contenir au minimum 20 caractères et maximum 400 caractères
 
-Pour cela nous allons utiliser [JOI]("https://www.npmjs.com/package/joi"), donc n'oubliez pas de l'installer dans le dossier backend.
+Pour cela nous allons utiliser [JOI](https://www.npmjs.com/package/joi), donc n'oubliez pas de l'installer dans le dossier backend.
