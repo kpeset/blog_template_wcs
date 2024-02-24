@@ -56,5 +56,38 @@ Notre route va agir en deux étape :
 - exécution de la fonction `sayHello` de `articleMiddlewares`
 - exécution de la fonction `browse` de `articleControllers`
 
+<br />
+
+### Mise en place de conditions
+
+Notre premier middleware ne fait pas grand chose ! Nous allons mettre en place une fonction qui vérifie le role d'un utilisateur.
+Si le role est admin alors nous pourrons accéder à la fonction qui permet de lister tous les articles, sinon nous déclencherons une erreur :
+
+<br />
+
+```js
+
+const checkIfAdmin = (req, res, next) => {
+  const currentUser = "admin";
+
+  if (currentUser !== "admin") {
+    res.status(400).send("Accès non autorisé");
+  } else {
+    next();
+  }
+};
+```
+
+<br />
+
+Nous avons crée la fonction `checkIfAdmin` dans notre middleware. Et tout ce que nous avons fait, c'est de mettre une condition à l'intérieur de cette fonction.
+Si le rôle n'est pas admin alors le client recevra un status 400 avec le message d'erreur "accès non autorisé".
+Si le rôle est admin alors nous faisons `next()` pour passer à la fonctionnalité suivante de notre route.
+
+**Note : ** Ici, `currentUser` est évidement en "dur". Mais très bientôt nous serons capable de récupérer dynamiquement le rôle d'un utilisateur.
+
+
+
+
 
 
