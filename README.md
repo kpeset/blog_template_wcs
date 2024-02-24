@@ -392,3 +392,5 @@ const add = async (req, res, next) => {
 app.use(express.json());
 ```
 
+La fonction `create` s'attend à recevoir un paramètre. Nous lui envoyons donc l'objet `articleInfos` qui va récupérer ce qu'il y aura dans le corps (`body`) de notre requête.
+
