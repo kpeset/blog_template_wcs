@@ -106,6 +106,18 @@ const Joi = require("joi");
 
 <br />
 
+Puis nous allons créer la structure de la fonction de notre middleware :
+
+<br />
+
+```js
+const validateArticleFields = (req, res, next) => {
+  // ici nous mettrons notre code
+}
+```
+
+<br />
+
 Afin de configurer les spécificités de nos champs nous devons créer un schéma :
 
 ```js
@@ -125,4 +137,25 @@ Afin de configurer les spécificités de nos champs nous devons créer un schém
 
 Ici nous avons un schéma basique. Concernant la personnalisation des messages d'erreurs, je vous invite à regarder directement le code.
 
+Puis nous pouvons créer les conditions :
 
+<br />
+
+```js
+ const { error } = articleSchema.validate(req.body);
+
+  if (error) {
+    res.status(400).json({
+      msg: error.details[0].message,
+    });
+  } else {
+    next();
+  }
+};
+```
+
+Dans un premier temps nous voulons récupérer les éventuelles erreurs que va déclencher la fonction `validate`.
+Pour cela nous appliquons la fonction `validate` de joi sur notre schema. Cette fonction prend en paramètre les données que nous lui envoyons (ici les données qui proviennent du `body` de la requête).
+
+Si il y a une erreur de saisie, alors nous envoyons au client une erreur 400 au format json avec le message d'erreur provenant de JOI.
+Si il n'y a pas d'erreur nous faisons `next()` pour passer à l'étape suivante de notre route.
