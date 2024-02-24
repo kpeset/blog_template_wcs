@@ -9,7 +9,7 @@ Dans cet atelier, nous allons créer nos premiers middlewares, du moins utile au
 ### Définition
 
 
-Un middleware dans Express comme un intermédiaire qui traite les requêtes avant qu'elles n'atteignent la route finale. Il peut exécuter des fonctions comme authentifier des utilisateurs, logger des informations, ou modifier des requêtes, facilitant ainsi la gestion et l'organisation du flux de données.
+Un middleware dans Express agit comme un intermédiaire qui traite les requêtes avant qu'elles n'atteignent la route finale. Il peut exécuter des fonctions comme authentifier des utilisateurs, logger des informations, ou modifier des requêtes, facilitant ainsi la gestion et l'organisation du flux de données.
 
 ### Notre premier middleware
 Nous avons commencé par créer un middleware très basique qui va nous envoyer un `console.info` dans le terminal de notre IDE :
