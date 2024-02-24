@@ -1,30 +1,60 @@
-Patience ... Le README arrive ...
+# Express - Création des middlewares (avec JOI)
 
-En attendant voici un exercice :
+## Objectif de l'atelier
 
-Vous allez faire en sorte qu'il y ai maintenant la possibilité de update et delete un article.
+Dans cet atelier, nous allons créer nos premiers middlewares, du moins utile au plus utile.
 
-Executer les routes sur Postman suffira (pas besoin de le faire côté React)
+## Explication du code
 
-Bon courage !
+### Définition
 
-PS : N'oubliez pas de faire les choses suivantes :
 
-- créer le .env dans le backend et le configurer :
+Un middleware dans Express comme un intermédiaire qui traite les requêtes avant qu'elles n'atteignent la route finale. Il peut exécuter des fonctions comme authentifier des utilisateurs, logger des informations, ou modifier des requêtes, facilitant ainsi la gestion et l'organisation du flux de données.
 
-APP_PORT=3311
-APP_SECRET=YOUR_APP_SECRET_KEY
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=VOTRE_NOM_D_UTILISATEUR_MYSQL
-DB_PASSWORD=VOTRE_MDP
-DB_NAME=blog_template_wcs
-FRONTEND_URL=http://localhost:3000
+### Notre premier middleware
+Nous avons commencé par créer un middleware très basique qui va nous envoyer un `console.info` dans le terminal de notre IDE :
 
-- npm run db:migrate
-- et npm run dev
+<br />
 
-Si vous avez terminé rapidement vous pouvez alors lister les utilisateurs (de la table user ! Vous êtes perdus ? Regardez le fichier schema.sql dans le dossier database !) et de pouvoir en créer.
-Donc vous allez devoir, je suppose, créer les deux routes, le controller, et le manager.
+```js
+const sayHello = (req, res, next) => {
+  console.info("coucou depuis le middleware");
+  next();
+};
+```
 
-Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment dans la step 01 !
+<br />
+
+Un middleware prend trois paramètres :
+- `req` pour la requête
+- `res` pour la réponse
+- `next` pour passer au middleware/fonction du controlleur suivante
+
+Il ne faut pas oublier de l'exporter !
+
+<br />
+
+```js
+module.exports = { sayHello };
+```
+<br />
+
+Ici notre middleware va simplement exécuter un `console.info` et passer directement à la fonction `browse` du controller qui gère les articles (dans `router.js` :
+
+<br />
+
+```js
+const articleMiddlewares = require("./middlewares/articleMiddlewares");
+
+router.get("/articles", articleMiddlewares.sayHello, articleControllers.browse); 
+```
+
+<br />
+
+Ici nous avons donc commencé par importer notre middleware que nous utilisons dans notre route avec la fonction désirée.
+Notre route va agir en deux étape :
+- exécution de la fonction `sayHello` de `articleMiddlewares`
+- exécution de la fonction `browse` de `articleControllers`
+
+
+
