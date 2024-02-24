@@ -86,8 +86,12 @@ Si le rôle est admin alors nous faisons `next()` pour passer à la fonctionnali
 
 **Note** : Ici, `currentUser` est évidement en "dur". Mais très bientôt nous serons capable de récupérer dynamiquement le rôle d'un utilisateur.
 
+<br />
 
+### Validation des champs avec JOI
 
+Nous allons maintenant faire un middleware pour vérifier les champs lors de la création d'un article en supposant les spécificités suivantes :
+- un titre est obligatoire et doit contenir au minimum 5 caractères et maximum 10 caractères
+- un contenu est obligatoire et doit contenir au minimum 20 caractères et maximum 400 caractères
 
-
-
+Pour cela nous allons utiliser [JOI]("https://www.npmjs.com/package/joi"), donc n'oubliez pas de l'installer dans le dossier backend.
