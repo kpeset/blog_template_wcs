@@ -95,3 +95,34 @@ Nous allons maintenant faire un middleware pour vérifier les champs lors de la 
 - un contenu est obligatoire et doit contenir au minimum 20 caractères et maximum 400 caractères
 
 Pour cela nous allons utiliser [JOI](https://www.npmjs.com/package/joi), donc n'oubliez pas de l'installer dans le dossier backend.
+
+Nous commençons par importer Joi dans notre middleware :
+
+<br />
+
+```js
+const Joi = require("joi");
+```
+
+<br />
+
+Afin de configurer les spécificités de nos champs nous devons créer un schéma :
+
+```js
+  const articleSchema = Joi.object({
+    title: Joi.string()
+      .min(5)
+      .max(10)
+      .required(),
+    content: Joi.string()
+      .min(20)
+      .max(400)
+      .required(),
+  });
+```
+
+<br />
+
+Ici nous avons un schéma basique. Concernant la personnalisation des messages d'erreurs, je vous invite à regarder directement le code.
+
+
