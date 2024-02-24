@@ -84,7 +84,7 @@ Nous avons crée la fonction `checkIfAdmin` dans notre middleware. Et tout ce qu
 Si le rôle n'est pas admin alors le client recevra un status 400 avec le message d'erreur "accès non autorisé".
 Si le rôle est admin alors nous faisons `next()` pour passer à la fonctionnalité suivante de notre route.
 
-**Note : ** Ici, `currentUser` est évidement en "dur". Mais très bientôt nous serons capable de récupérer dynamiquement le rôle d'un utilisateur.
+**Note** : Ici, `currentUser` est évidement en "dur". Mais très bientôt nous serons capable de récupérer dynamiquement le rôle d'un utilisateur.
 
 
 
