@@ -23,4 +23,22 @@ const add = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, add };
+const update = async (req, res, next) => {
+  const user = {
+    username: req.body.username,
+    id: req.params.id,
+  };
+  try {
+    const result = await tables.user.update(user);
+    console.info(result);
+    if (result.affectedRows > 0) {
+      res.json({ msg: "Utilisateur modifié avec succès" });
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { browse, add, update };
