@@ -53,3 +53,20 @@ Quel est le point commun entre le `user_id` qui provient de `article` et `id` de
 La réponse est simple 😉 L'id de l'utilisateur qui a crée l'article. C'est cet id qui va nous servir à faire la jointure.
 
 De cette façon, nous pouvons récupérer tout ce qu'il y a dans la table `user`.
+
+Maintenant le résultat de notre requête pour lister les articles est le suivant :
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Les meilleurs restos de Liège",
+        "content": "Lorem ipsum dolor sit amet, consectetur.",
+        "creation_datetime": "2024-03-02T10:31:35.000Z",
+        "username": "admin"
+    }
+]
+```
+
+Plutôt cool, non ?
+Les jointures vont permettre de relier les tables pour récupérer de tables en tables les informations qui nous intéressent.
