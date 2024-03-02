@@ -154,3 +154,16 @@ Cet objet contient :
 - le title qui provient du `req.body`
 - le content qui provient de `req.body`
 - l'id de l'article qui lui provient des params `req.params` de l'url de la requête (exemple : `/api/articles/3` <- ici 3 est le params)
+
+Ensuite dans le `try` nous allons exécuter la fonction `update` de notre `articleManager` en lui envoyant les informations de notre article.
+
+Nous avons ensuite la condition suivante : si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
+En revanche, si la requête a affecté un article nous envoyons un message de succès.
+
+Tout cela sera exigé quand nous utiliserons la route suivante dans `router.js` : 
+
+```js
+router.put("/articles/:id", articleControllers.update);
+```
+
+Quand nous utilisons la méthode `put` sur le chemin `/articles/:id` (`:id` sera remplacé par l'id de la requête -> `/articles/13`), nous exécuterons la fonction `update`qui provient de `articleControllers`.
