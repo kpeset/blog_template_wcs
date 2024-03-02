@@ -119,7 +119,7 @@ Maintenant que nous avons notre commande SQL, nous pouvons créer la fonction `u
 
 Nous savons que le titre, le contenu et l'id de l'article sont dynamiques puisque c'est l'utlisateur (qui possède un id), qui va écrire du nouveau contenu pour son article.
 
-Toutes ces informations vont être récupérées dans le `body` (le corps) de la requête.
+Toutes ces informations vont être récupérées dans les paramètres (ici `article`) de la fonction que nous exécuterons dans le controller.
 
 Il est temps de nous occuper du controller :
 
