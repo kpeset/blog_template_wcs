@@ -71,7 +71,7 @@ Les jointures vont permettre de relier les tables pour récupérer de tables en 
 
 <br />
 
-### Modification d'un article
+## Modification d'un article
 
 Maintnenant nous allons faire en sorte de pouvoir modifier les éléments suivants d'un article :
 - le titre
