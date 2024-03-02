@@ -70,3 +70,80 @@ Maintenant le résultat de notre requête pour lister les articles est le suivan
 
 Plutôt cool, non ?
 Les jointures vont permettre de relier les tables pour récupérer de tables en tables les informations qui nous intéressent.
+
+<br />
+
+### Modification d'un article
+
+Maintnenant nous allons faire en sorte de pouvoir modifier les éléments suivants d'un article :
+- le titre
+- le contenu
+- la date
+
+**Conseil :** Avant même de coder quoi que ce soit, je vous conseille de trouver la requête SQL pour réaliser ce que vous voulez faire.
+
+<br />
+
+C'est d'ailleurs ce que nous allons faire ! Trouver la requête SQL qui nous permet de mettre à jour un article :
+
+<br />
+
+```sql
+UPDATE article SET title="Nouveau titre", content="Texte de notre article", creation_datetime=NOW() WHERE id=3
+```
+<br />
+
+Ici nous utilisons la commande SQL `UPDATE` pour modifier la table article.
+La clause `SET` permet de dire quelle propriété va être modifiée et sa valeur.
+La clause `WHERE` permet de dire quel id va être concerné par les modifications.
+
+**ATTENTION :** Si nous ne spécifions pas d'id alors TOUS les articles seront modifiés.
+
+<br />
+
+Maintenant que nous avons notre commande SQL, nous pouvons créer la fonction `update` dans notre manager :
+
+<br />
+
+```js
+  async update(article) {
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET title=?, content=?, creation_datetime=NOW() WHERE id=?`,
+      [article.title, article.content, article.id]
+    );
+    return rows;
+  }
+```
+
+<br />
+
+Nous savons que le titre, le contenu et l'id de l'article sont dynamiques puisque c'est l'utlisateur (qui possède un id), qui va écrire du nouveau contenu pour son article.
+
+Toutes ces informations vont être récupérées dans le `body` (le corps) de la requête.
+
+Il est temps de nous occuper du controller :
+
+<br />
+
+```js
+const update = async (req, res, next) => {
+  const articleInfos = {
+    title: req.body.title,
+    content: req.body.content,
+    id: req.params.id,
+  };
+
+  try {
+    const result = await tables.article.update(articleInfos);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "article introuvable" });
+    } else {
+      res.json({ msg: "article modifié avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+```
+
+<br />
