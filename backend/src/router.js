@@ -6,7 +6,6 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import itemControllers module for handling item-related operations
 const articleControllers = require("./controllers/articleControllers");
 const userControllers = require("./controllers/userControllers");
 
@@ -33,7 +32,5 @@ router.delete("/articles/:id", articleControllers.destroy);
 router.get("/users", userControllers.browse);
 router.post("/users", userControllers.add);
 router.put("/users/:id", userControllers.update);
-
-/* ************************************************************************* */
 
 module.exports = router;
