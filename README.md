@@ -1,4 +1,4 @@
-# Reat : Lier le front et le back
+# React - Lier le front et le back
 ## Objectif de l'atelier
 
 Dans cet atelier, nous avons crée deux pages côté frontend :
