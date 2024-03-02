@@ -38,6 +38,7 @@ select * from articles;
 <br />
 
 Lors de cette requête nous n'avons que l'id de l'utilisateur.
+
 Nous allons devoir faire une jointure entre la table `article` et `user` afin de récupérer les informations qui nous intéressent dans dans la table `user` :
 
 <br />
