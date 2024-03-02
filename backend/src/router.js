@@ -32,6 +32,7 @@ router.delete("/articles/:id", articleControllers.destroy);
 
 router.get("/users", userControllers.browse);
 router.post("/users", userControllers.add);
+router.put("/users/:id", userControllers.update);
 
 /* ************************************************************************* */
 

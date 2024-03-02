@@ -6,7 +6,9 @@ class ArticleManager extends AbstractManager {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select article.id, article.title, article.content, article.creation_datetime, user.username from ${this.table} JOIN user ON article.user_id = user.id`
+    );
     return rows;
   }
 
