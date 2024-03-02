@@ -1,31 +1,22 @@
-Patience ... Le README arrive ...
+# Express - Finalisation du CRUD pour les articles (update & delete)
 
-En attendant voici un exercice :
+## Objectif de l'atelier
 
-Il faut avoir la possibilité de lister les utilisateurs (de la table user ! Vous êtes perdus ? Regardez le fichier schema.sql dans le dossier database !) et de pouvoir en créer. Bonus : modifier et supprimer un user !
-Donc vous allez devoir, je suppose, créer les deux routes, le controller, et le manager.
+Dans cet atelier, nous avons crée deux pages côté frontend :
+- lister / supprimer les articles
+- création d'un article
 
-Si vous avez des soucis, vous pouvez regarder ce qui a été fait précédemment dans la step 01 !
+## Lister les articles
 
-Bon courage !
+### Création de la page
 
-PS : N'oubliez pas de faire les choses suivantes :
+### Création de la route
 
-- npm i
-- créer le .env dans le backend et le configurer :
+### Récupération des articles
 
-```
-APP_PORT=3311
-APP_SECRET=YOUR_APP_SECRET_KEY
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=VOTRE_NOM_D_UTILISATEUR_MYSQL
-DB_PASSWORD=VOTRE_MDP
-DB_NAME=blog_template_wcs
-FRONTEND_URL=http://localhost:3000
-```
 
-- npm run db:migrate
-- et npm run dev
+## Création d'un article
 
-ENCORE-PS : N'oubliez pas que la route est http://locahost:VOTRE_PORT/api/LE_PATH_DU_ROUTER
+### Création du formulaire
+
+### Envoie du formulaire au backend
