@@ -147,3 +147,10 @@ const update = async (req, res, next) => {
 ```
 
 <br />
+
+Nous avons dans notre controller crée la fonction `update`.
+Dans cette fonction nous allons créer l'objet `articleInfos` que nous enverons à notre manager.
+Cet objet contient :
+- le title qui provient du `req.body`
+- le content qui provient de `req.body`
+- l'id de l'article qui lui provient des params `req.params` de l'url de la requête (`/api/articles/3` : ici 3 est le params)
