@@ -159,7 +159,7 @@ Ensuite dans le `try` nous allons exécuter la fonction `update` de notre `artic
 Nous avons ensuite la condition suivante : si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
 En revanche, si la requête a affecté un article nous envoyons un message de succès.
 
-Tout cela sera exigé quand nous utiliserons la route suivante dans `router.js` : 
+Tout cela sera exécuté quand nous utiliserons la route suivante dans `router.js` : 
 
 <br />
 
