@@ -58,13 +58,13 @@ Maintenant le résultat de notre requête pour lister les articles est le suivan
 
 ```json
 [
-    {
-        "id": 1,
-        "title": "Les meilleurs restos de Liège",
-        "content": "Lorem ipsum dolor sit amet, consectetur.",
-        "creation_datetime": "2024-03-02T10:31:35.000Z",
-        "username": "admin"
-    }
+  {
+    "id": 1,
+    "title": "Les meilleurs restos de Liège",
+    "content": "Lorem ipsum dolor sit amet, consectetur.",
+    "creation_datetime": "2024-03-02T10:31:35.000Z",
+    "username": "admin"
+  }
 ]
 ```
 
