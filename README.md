@@ -2,8 +2,8 @@
 
 ## Objectif de l'atelier
 
-Dans cet atelier, nous allons finaliser notre CRUD concernant la gestion des articles.
-Nous allons aussi créer les fonctionnalités pour la création des utilisateurs. La logique est EXACTEMENT la même que pour un article 🙂 !
+Dans cet atelier, nous avons finaliser notre CRUD concernant la gestion des articles.
+Nous avons aussi crée les fonctionnalités pour la création des utilisateurs. La logique est EXACTEMENT la même que pour un article 🙂 !
 
 ## Notre premiere jointure
 
