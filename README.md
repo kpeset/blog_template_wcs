@@ -223,6 +223,9 @@ const destroy = async (req, res, next) => {
 <br />
 
 Comme pour `update` nous exécutons la fonction `destroy` en envoyant en paramètre de fonction l'id qui provient des params de notre requête (`req.params`).
+
 Et nous avons la même gestion des erreurs.
+
 Si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
+
 En revanche, si la requête a affecté un article nous envoyons un message de succès.
