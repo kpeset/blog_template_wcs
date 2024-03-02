@@ -1,8 +1,9 @@
-# Express - Finalisation du CRUD pour les articles (update & delete) et création d'utilisateurs
+# Express - Finalisation du CRUD pour les articles (update & delete)
 
 ## Objectif de l'atelier
 
-Dans cet atelier, nous allons finaliser notre CRUD concernant la gestion des articles et des utilisateurs.
+Dans cet atelier, nous allons finaliser notre CRUD concernant la gestion des articles.
+Nous allons aussi créer les fonctionnalités pour la création des utilisateurs. La logique est EXACTEMENT la même que pour un article 🙂 !
 
 ## Notre premiere jointure
 
