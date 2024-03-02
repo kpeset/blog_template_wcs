@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Articles from "./pages/Articles";
 import ArticleDetails from "./pages/ArticlesDetails";
 import CreateArticle from "./pages/CreateArticle";
-import Register from "./pages/Register";
 
 import "./styles/app.css";
 import "./styles/navbar.css";
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
       {
         path: "/create",
         element: <CreateArticle />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
       },
     ],
   },
