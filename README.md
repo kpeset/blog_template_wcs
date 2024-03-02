@@ -35,4 +35,4 @@ Voici le détail de chacune des branches :
 - **step_01** : [**Express - Création du controller et manager pour la gestion des articles (create & read)**](https://github.com/kpeset/blog_template_wcs/tree/step_01)
 - **step_02** : [**Express - Création des middlewares (avec JOI)**](https://github.com/kpeset/blog_template_wcs/tree/step_02)
 - **step_03** : [**Express - Finalisation du CRUD pour les articles (update & delete) et création d'utilisateurs**](https://github.com/kpeset/blog_template_wcs/tree/step_03)
-- **step_04** : [**React - Lier le front et le back (création / suppression d'articles & Création d'utilisateurs)**](https://github.com/kpeset/blog_template_wcs/tree/step_04)
+- **step_04** : [**React - Lier le front et le back (création / suppression d'articles & création d'utilisateurs)**](https://github.com/kpeset/blog_template_wcs/tree/step_04)
