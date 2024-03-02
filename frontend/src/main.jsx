@@ -7,7 +7,6 @@ import App from "./App";
 
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
-import ArticleDetails from "./pages/ArticlesDetails";
 import CreateArticle from "./pages/CreateArticle";
 
 import "./styles/app.css";
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
           axios
             .get(`${import.meta.env.VITE_BACKEND_URL}/api/articles`)
             .then((response) => response.data),
-      },
-      {
-        path: "/articles/:id",
-        element: <ArticleDetails />,
       },
       {
         path: "/create",
