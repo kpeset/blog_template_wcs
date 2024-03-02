@@ -56,7 +56,7 @@ const router = createBrowserRouter([
 
 <br />
 
-**RAPPEL :** Ici il s'agit d'un léger rappel concernant les routes. N'oubliez pas de configurer le `Outlet` dans `App.jsx`. Observez bien le code si vous ne souvenez plus comment créer des routes sur React.
+**RAPPEL :** Ici il s'agit d'un léger rappel concernant les routes. N'oubliez pas de configurer le `Outlet` dans `App.jsx`. Observez bien le code si vous ne souvenez plus comment créer des routes sur React. Je vous invite aussi à revoir le workshop sur le sujet.
 
 <br />
 
@@ -74,6 +74,24 @@ Maintenant que notre route est crée, nous allons exécuter notre requête API a
             .then((response) => response.data),
       },
 ```
+
+Le loader va exécuter une requête axios de la façon classique : `axios.get(url_du_backend).then(faire_quelque_chose_si_pas_erreur)`.
+
+Ici pour l'url, je récupère d'abord l'url dans le .env :
+
+```
+VITE_BACKEND_URL=http://localhost:3310
+```
+
+Et j'ajoute ensuite le chemin exacte. Ce qui donne :
+
+```js
+`${import.meta.env.VITE_BACKEND_URL}/api/articles`
+```
+
+Puis dans le `then` nous retournons la propriété `data` de notre response.
+
+**RAPPEL :** Si à ce moment là vous êtes perdus, je vous invite à relire le workshop sur le router ou a revoir les vidéos **React : Introduction aux requêtes API et React : Axios (router, useEffect)**.
 
 ### Récupération des articles
 
