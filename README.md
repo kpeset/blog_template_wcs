@@ -171,6 +171,8 @@ router.put("/articles/:id", articleControllers.update);
 
 Quand nous utilisons la méthode `put` sur le chemin `/articles/:id` (`:id` sera remplacé par l'id de la requête -> `/articles/13`), nous exécuterons la fonction `update`qui provient de `articleControllers`.
 
+<br />
+
 ## Suppression d'un article
 
 Nous allons maintenant créer une fonctionnalité pour supprimer un article.
