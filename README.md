@@ -48,3 +48,8 @@ select article.id, article.title, article.content, article.creation_datetime, us
 ```
 
 <br />
+
+Quel est le point commun entre le `user_id` qui provient de `article` et `id` de la table `user` ?
+La réponse est simple 😉 L'id de l'utilisateur qui a crée l'article. C'est cet id qui va nous servir à faire la jointure.
+
+De cette façon, nous pouvons récupérer tout ce qu'il y a dans la table `user`.
