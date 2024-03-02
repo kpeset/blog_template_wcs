@@ -75,6 +75,7 @@ Les jointures vont permettre de relier les tables pour récupérer de tables en 
 ## Modification d'un article
 
 Maintnenant nous allons faire en sorte de pouvoir modifier les éléments suivants d'un article :
+
 - le titre
 - le contenu
 - la date
@@ -90,6 +91,7 @@ C'est d'ailleurs ce que nous allons faire ! Trouver la requête SQL qui nous per
 ```sql
 UPDATE article SET title="Nouveau titre", content="Texte de notre article", creation_datetime=NOW() WHERE id=3
 ```
+
 <br />
 
 Ici nous utilisons la commande SQL `UPDATE` pour modifier la table article.
@@ -150,6 +152,7 @@ const update = async (req, res, next) => {
 Nous avons dans notre controller crée la fonction `update`.
 Dans cette fonction nous allons créer l'objet `articleInfos` que nous enverons à notre manager.
 Cet objet contient :
+
 - le title qui provient du `req.body`
 - le content qui provient de `req.body`
 - l'id de l'article qui lui provient des params `req.params` de l'url de la requête (exemple : `/api/articles/3` <- ici 3 est le params)
@@ -159,7 +162,7 @@ Ensuite dans le `try` nous allons exécuter la fonction `update` de notre `artic
 Nous avons ensuite la condition suivante : si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
 En revanche, si la requête a affecté un article nous envoyons un message de succès.
 
-Tout cela sera exécuté quand nous utiliserons la route suivante dans `router.js` : 
+Tout cela sera exécuté quand nous utiliserons la route suivante dans `router.js` :
 
 <br />
 
