@@ -170,3 +170,32 @@ router.put("/articles/:id", articleControllers.update);
 <br />
 
 Quand nous utilisons la méthode `put` sur le chemin `/articles/:id` (`:id` sera remplacé par l'id de la requête -> `/articles/13`), nous exécuterons la fonction `update`qui provient de `articleControllers`.
+
+## Suppression d'un article
+
+Nous allons maintenant créer une fonctionnalité pour supprimer un article.
+Comme nous l'avons fait avec l'exemple précédent, nous allons d'abord identifier la requête SQL à exécuter :
+
+<br />
+
+```sql
+DELETE FROM article WHERE id=3
+```
+
+<br />
+
+Ici nous allons supprimer un article dont l'id est le 3.
+
+Maintenant que nous avons notre commande SQL, nous allons créer la fonction destroy dans notre `articleManager` de la même manière que nous l'avons fait pour `update` :
+
+<br />
+
+```js
+  async destroy(id) {
+    const [rows] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id=?`,
+      [id]
+    );
+    return rows;
+  }
+```
