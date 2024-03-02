@@ -75,19 +75,29 @@ Maintenant que notre route est crée, nous allons exécuter notre requête API a
       },
 ```
 
+<br />
+
 Le loader va exécuter une requête axios de la façon classique : `axios.get(url_du_backend).then(faire_quelque_chose_si_pas_erreur)`.
 
 Ici pour l'url, je récupère d'abord l'url dans le .env :
+
+<br />
 
 ```
 VITE_BACKEND_URL=http://localhost:3310
 ```
 
+<br />
+
 Et j'ajoute ensuite le chemin exacte. Ce qui donne :
+
+<br />
 
 ```js
 `${import.meta.env.VITE_BACKEND_URL}/api/articles`
 ```
+
+<br />
 
 Puis dans le `then` nous retournons la propriété `data` de notre response.
 
@@ -95,6 +105,51 @@ Puis dans le `then` nous retournons la propriété `data` de notre response.
 
 ### Récupération des articles
 
+Maintenant il ne nous reste plus qu'à afficher le résultat de la requête sur notre page.
+Nous avons crée un composant `Article.jsx` :
+
+<br />
+
+```jsx
+export default function Article({ article }) {
+  return (
+    <article>
+      <h3>{article.title}</h3>
+      <h5>{article.username}</h5>
+      <p>{article.content}</p>
+    </article>
+  );
+}
+```
+
+<br />
+
+Notre composant va, de la façon la plus classique recevoir des props.
+Nous appelerons ce composant sur la page `Articles.jsx` autant de fois qu'il y aura de résultats dans la requête grace à la méthode `map` :
+
+<br />
+
+```jsx
+import { useLoaderData } from "react-router-dom";
+import Article from "../components/Article";
+
+export default function Articles() {
+  const articles = useLoaderData();
+
+  return (
+    <>
+      <h1>Liste des articles :</h1>
+      {articles.map((article) => (
+        <Article key={article.id} article={article} refreshPage={refreshPage} />
+      ))}
+    </>
+  );
+}
+```
+
+<br />
+
+Comme d'habitude, nous avons utilisé le hook `useLoaderData` afin de récupérer ce que nous a retourné le `loader` dans la route de `main.jsx`.
 
 ## Création d'un article
 
