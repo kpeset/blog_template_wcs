@@ -9,8 +9,6 @@ export default function Article({ article, refreshPage }) {
       .catch((error) => console.error(error));
   };
 
-  console.info(article);
-
   return (
     <article>
       <h3>{article.title}</h3>
