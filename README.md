@@ -199,3 +199,30 @@ Maintenant que nous avons notre commande SQL, nous allons créer la fonction des
     return rows;
   }
 ```
+
+Ici, la fonction `destroy` quand elle sera exécutée dans le controller va recevoir un id.
+Regardons maintenant la fonction `destroy` de notre `articleControllers` :
+
+<br />
+
+```js
+const destroy = async (req, res, next) => {
+  try {
+    const result = await tables.article.destroy(req.params.id);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "article introuvable" });
+    } else {
+      res.json({ msg: "article supprimé avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+```
+
+<br />
+
+Comme pour `update` nous exécutons la fonction `destroy` en envoyant en paramètre de fonction l'id qui provient des params de notre requête (`req.params`).
+Et nous avons la même gestion des erreurs.
+Si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
+En revanche, si la requête a affecté un article nous envoyons un message de succès.
