@@ -162,8 +162,12 @@ En revanche, si la requête a affecté un article nous envoyons un message de su
 
 Tout cela sera exigé quand nous utiliserons la route suivante dans `router.js` : 
 
+<br />
+
 ```js
 router.put("/articles/:id", articleControllers.update);
 ```
+
+<br />
 
 Quand nous utilisons la méthode `put` sur le chemin `/articles/:id` (`:id` sera remplacé par l'id de la requête -> `/articles/13`), nous exécuterons la fonction `update`qui provient de `articleControllers`.
