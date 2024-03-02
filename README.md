@@ -4,9 +4,7 @@
 
 Dans cet atelier, nous allons finaliser notre CRUD concernant la gestion des articles et des utilisateurs.
 
-## Explication du code
-
-### Notre premiere jointure
+## Notre premiere jointure
 
 Actuellement quand nous utilisons la route `/articles`, nous avons le résultat suivant :
 
