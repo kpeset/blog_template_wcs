@@ -231,3 +231,11 @@ Et nous avons la même gestion des erreurs.
 Si aucune tuple n'a été affecté par la requête c'est que l'id de l'article n'existe pas. Donc nous envoyons une réponse 404 avec un message d'erreur dans un json.
 
 En revanche, si la requête a affecté un article nous envoyons un message de succès.
+
+Et bien entendu, nous n'oublions pas de créer la route dans `router.js` :
+
+```js
+router.delete("/articles/:id", articleControllers.destroy);
+```
+
+Et voilà ! Vous savez maintenant faire un CRUD complet ! 😀💫🚀
