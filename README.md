@@ -239,4 +239,37 @@ Il ne nous reste plus qu'à lier cette fonction à nos champs :
         <textarea name="content" onChange={handleChangeForm} id="content" />
 
 ```
+<br />
+
 ### Envoie du formulaire au backend
+
+<br />
+
+Maintenant que nous arrivons à enregistrer les données dans un `state`, il ne nous reste plus qu'à l'envoyer au backend.
+Nous allons créer la fonction suivante :
+
+<br />
+
+```jsx
+  const submitArticle = (event) => {
+    event.preventDefault();
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
+      .then((response) => console.info(response))
+      .catch((err) => console.error(err));
+  };
+```
+
+Cette fonction permet d'utiliser la méthode `post` d'axios sur l'URL provenant du `.env`. En deuxième paramètre à la fonction `post`, nous envoyons ce qu'il y a dans le state `form`.
+
+Il ne faut pas oublier d'exécuter cette fonction à la soumission du formulaire :
+
+<br />
+
+```jsx
+      <form onSubmit={submitArticle}>
+```
+
+<br />
+
+Et voilà ! Maintenant depuis le front, vous êtes capables d'intéragir avec le back ! 🚀
