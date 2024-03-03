@@ -217,6 +217,26 @@ Maintenant nous allons créer la fonction `handleChangeForm` qui va écouter ce 
   };
 ```
 
+<br />
 
+Cette fonction va changer le state `form` avec la fonction `setForm` qui prendre en paramètre un objet.
+Le `...form` permet de récupérer les propriétés et valeurs, ce qui nous permet de ne pas écraser à chaque fois les précédentes données.
+Ensuite nous avons `[event.target.name]` qui permet de nommer dynamiquement la propriété de notre objet par rapport au `name` du champ que subit l'action et `event.target.value` nous permet de récupérer la `value` du champ qui subit l'action.
 
+<br />
+
+Il ne nous reste plus qu'à lier cette fonction à nos champs :
+
+<br />
+
+```jsx
+        <input
+          type="text"
+          name="title"
+          onChange={handleChangeForm}
+          id="title"
+        />
+        <textarea name="content" onChange={handleChangeForm} id="content" />
+
+```
 ### Envoie du formulaire au backend
