@@ -204,6 +204,19 @@ Notre state `form` est un objet qui contient trois propriétés :
 
 <br />
 
+Maintenant nous allons créer la fonction `handleChangeForm` qui va écouter ce qu'il se passe dans les champs et enregistrer son contenu dans le state `form` :
+
+<br />
+
+```jsx
+  const handleChangeForm = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+```
+
 
 
 ### Envoie du formulaire au backend
