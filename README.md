@@ -155,4 +155,55 @@ Comme d'habitude, nous avons utilisé le hook `useLoaderData` afin de récupére
 
 ### Création du formulaire
 
+La première chose à faire est de créer la page `CreateArticle` et de l'ajouter à nos routes dans `Main.jsx`.
+Dans cette page, nous allons créer le formulaire suivant :
+
+```jsx
+export default function CreateArticle() {
+  return (
+    <>
+      <h1>Créer un article</h1>
+      <form>
+        <label htmlFor="title">Titre de l&apos;article :</label>
+        <input
+          type="text"
+          name="title"
+          onChange={handleChangeForm}
+          id="title"
+        />
+        <label htmlFor="content">Contenu de l&apos;article :</label>
+        <textarea name="content" id="content" />
+        <input type="submit" />
+      </form>
+    </>
+  );
+}
+```
+
+Nous devons à présent enregistrer dans un `state` (état), ce que l'on va écrire dans les différents champs à l'aide d'une fonction.
+Nous allons d'abord commencer par le `state` :
+
+<br />
+
+```jsx
+  const [form, setForm] = useState({
+    title: "",
+    content: "",
+    userId: 1,
+  });
+```
+
+<br />
+
+Notre state `form` est un objet qui contient trois propriétés :
+- title
+- content
+- userId (donc la valeur par défaut est 1)
+
+**Rappel :** `userId` est l'id de l'utilisateur qui va écrire l'article. Comme pour l'instant nous ne pouvons pas nous connecter, nous allons mettre par défaut le `userId` à 1.
+
+<br />
+
+
+
 ### Envoie du formulaire au backend
