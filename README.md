@@ -1,7 +1,9 @@
 # React - Lier le front et le back
+
 ## Objectif de l'atelier
 
 Dans cet atelier, nous avons crée deux pages côté frontend :
+
 - lister / supprimer les articles
 - création d'un article
 
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/articles",
         element: <Articles />,
-      }
+      },
     ],
   },
 ]);
@@ -94,7 +96,7 @@ Et j'ajoute ensuite le chemin exacte. Ce qui donne :
 <br />
 
 ```js
-`${import.meta.env.VITE_BACKEND_URL}/api/articles`
+`${import.meta.env.VITE_BACKEND_URL}/api/articles`;
 ```
 
 <br />
@@ -186,16 +188,17 @@ Nous allons d'abord commencer par le `state` :
 <br />
 
 ```jsx
-  const [form, setForm] = useState({
-    title: "",
-    content: "",
-    userId: 1,
-  });
+const [form, setForm] = useState({
+  title: "",
+  content: "",
+  userId: 1,
+});
 ```
 
 <br />
 
 Notre state `form` est un objet qui contient trois propriétés :
+
 - title
 - content
 - userId (donc la valeur par défaut est 1)
@@ -209,12 +212,12 @@ Maintenant nous allons créer la fonction `handleChangeForm` qui va écouter ce 
 <br />
 
 ```jsx
-  const handleChangeForm = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-  };
+const handleChangeForm = (event) => {
+  setForm({
+    ...form,
+    [event.target.name]: event.target.value,
+  });
+};
 ```
 
 <br />
@@ -239,6 +242,7 @@ Il ne nous reste plus qu'à lier cette fonction à nos champs :
         <textarea name="content" onChange={handleChangeForm} id="content" />
 
 ```
+
 <br />
 
 ### Envoie du formulaire au backend
@@ -251,13 +255,13 @@ Nous allons créer la fonction suivante :
 <br />
 
 ```jsx
-  const submitArticle = (event) => {
-    event.preventDefault();
-    axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
-      .then((response) => console.info(response))
-      .catch((err) => console.error(err));
-  };
+const submitArticle = (event) => {
+  event.preventDefault();
+  axios
+    .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
+    .then((response) => console.info(response))
+    .catch((err) => console.error(err));
+};
 ```
 
 Cette fonction permet d'utiliser la méthode `post` d'axios sur l'URL provenant du `.env`. En deuxième paramètre à la fonction `post`, nous envoyons ce qu'il y a dans le state `form`.

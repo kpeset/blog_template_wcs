@@ -12,6 +12,7 @@ export default function Articles() {
 
   return (
     <>
+      <h1>Liste des articles :</h1>
       {articles.map((article) => (
         <Article key={article.id} article={article} refreshPage={refreshPage} />
       ))}
