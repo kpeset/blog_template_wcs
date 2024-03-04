@@ -12,14 +12,16 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   const userInfos = {
     email: req.body.email,
-    password: req.body.password,
+    password: req.body.hashedPassword,
     username: req.body.username,
   };
+
   try {
     const result = await tables.user.create(userInfos);
-    res.json(result);
-  } catch (err) {
-    next(err);
+    console.info(result);
+    res.json({ msg: "Utilisateur enregistré avec succès" });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -41,4 +43,4 @@ const update = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, add, update };
+module.exports = { browse, update, add };

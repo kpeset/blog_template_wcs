@@ -10,6 +10,7 @@ const articleControllers = require("./controllers/articleControllers");
 const userControllers = require("./controllers/userControllers");
 
 const articleMiddlewares = require("./middlewares/articleMiddlewares");
+const authMiddlewares = require("./services/auth");
 
 router.get(
   "/articles",
@@ -30,7 +31,7 @@ router.put("/articles/:id", articleControllers.update);
 router.delete("/articles/:id", articleControllers.destroy);
 
 router.get("/users", userControllers.browse);
-router.post("/users", userControllers.add);
 router.put("/users/:id", userControllers.update);
+router.post("/users", authMiddlewares.hashPassword, userControllers.add);
 
 module.exports = router;
