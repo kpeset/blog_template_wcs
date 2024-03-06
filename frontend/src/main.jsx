@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Articles from "./pages/Articles";
 import CreateArticle from "./pages/CreateArticle";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Forbidden from "./pages/Forbidden";
 
 import "./styles/app.css";
 import "./styles/navbar.css";
@@ -25,10 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/articles",
         element: <Articles />,
+        errorElement: <Forbidden />,
         loader: () =>
           axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/articles`)
-            .then((response) => response.data),
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/articles`, {
+              withCredentials: true,
+            })
+            .then((response) => response.data)
+            .catch((error) => console.error("ERROR", error)),
       },
       {
         path: "/create",
@@ -37,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

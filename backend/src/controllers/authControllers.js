@@ -25,7 +25,12 @@ const login = async (req, res, next) => {
         }
       );
 
-      res.cookie("auth", token).json({ msg: "Connexion réussie" });
+      res
+        .cookie("auth", token, {
+          httpOnly: true,
+          sameSite: "Lax",
+        })
+        .json({ msg: "Connexion réussie" });
     } else {
       res.sendStatus(422);
     }
