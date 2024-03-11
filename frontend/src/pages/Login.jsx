@@ -1,8 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 
+import UserContext from "../services/UserContext";
+
 export default function Login() {
+  const { setUser } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +31,13 @@ export default function Login() {
           withCredentials: true,
         }
       )
-      .then((response) => console.info(response))
+      .then((response) =>
+        setUser({
+          id: response.data.id,
+          email: response.data.email,
+          username: response.data.username,
+        })
+      )
       .catch((error) => console.error(error));
   };
 

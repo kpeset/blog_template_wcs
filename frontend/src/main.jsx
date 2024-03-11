@@ -12,6 +12,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Forbidden from "./pages/Forbidden";
 
+import { UserProvider } from "./services/UserContext";
+
 import "./styles/app.css";
 import "./styles/navbar.css";
 import "./styles/articles.css";
@@ -54,6 +56,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
