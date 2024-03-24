@@ -1,15 +1,18 @@
-# React - Lier le front et le back
+# Express & React - Hashage de password & Création compte avec React
 
 ## Objectif de l'atelier
 
-Dans cet atelier, nous avons crée deux pages côté frontend :
+Dans cet atelier, nous allons devoir réaliser plusieurs étapes afin de finaliser la création d'utilisateur :
 
-- lister / supprimer les articles
-- création d'un article
+- Hashage du password côté Backend avec Argon2
+- Création du formulaire côté frontend
 
-## Lister les articles
+Rappelez-vous, nous avons déjà créer la table user et son manager/controller associé à cette route lors de l'étape 3 ([**voir le commit**]((https://github.com/kpeset/blog_template_wcs/commit/1dbf8e46524ee9813e3a4f1085e666c92771c04b)))
 
-### Création de la page
+
+## Hashage du password
+
+### Création de la route 
 
 La première étape est de créer un composant React qui va nous servir de page.
 Nous lui avons donné le nom de `Articles.jsx` :
