@@ -7,7 +7,7 @@ Dans cet atelier, nous allons devoir réaliser plusieurs étapes afin de finalis
 - Hashage du password côté Backend avec Argon2
 - Création du formulaire côté frontend
 
-Rappelez-vous, nous avons déjà créer la table user et son manager/controller associé à cette route lors de l'étape 3 ([**voir le commit**]((https://github.com/kpeset/blog_template_wcs/commit/1dbf8e46524ee9813e3a4f1085e666c92771c04b)))
+Rappelez-vous, nous avons déjà créer la table user et son manager/controller associé à cette route lors de l'étape 3 ([**voir le commit**](https://github.com/kpeset/blog_template_wcs/commit/1dbf8e46524ee9813e3a4f1085e666c92771c04b))
 
 
 ## Hashage du password
