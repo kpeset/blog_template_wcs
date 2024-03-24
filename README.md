@@ -22,7 +22,7 @@ Pour qu'un utilisateur puisse se connecter, nous allons utiliser la logique suiv
 - Si les mot de passe correspondent, nous allons créer un Json Web Token
 - Nous enregistrons ce token dans un `cookie` que nous enverrons en tant que réponse.
 
-La première étape est de créer un composant React qui va nous servir de page.
+Donc nous allons dans un premier temps récupérer l
 Nous lui avons donné le nom de `Articles.jsx` :
 
 <br />
