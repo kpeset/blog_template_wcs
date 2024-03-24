@@ -8,11 +8,19 @@ Cela se fera en deux étapes principales :
 - création de la logique dans le backend
 - création de la page côté frontend
 
-Nous allons avoir besoin du package npm [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken?activeTab=readme)
+Nous allons avoir besoin du package npm [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken?activeTab=readme). Donc n'oubliez pas d'installer ce package dans vos dépendances côté backend.
 
-## Lister les articles
+## Le login côté backend
+### Étapes
 
-### Création de la page
+Pour qu'un utilisateur puisse se connecter, nous allons utiliser la logique suivante :
+
+- Récupération de l'émail du l'utilisateur et voir si il existe dans la BDD
+- Si l'émail existe, nous récupérons le mot de passe de la BDD (rappel, celui-ci est hashé)
+- Nous récupérons le mot de passe de l'utilisateur qu'il a entré dans le formulaire
+- Nous comparons les deux mots de passe grace à la fonction `verify` de `argon2`
+- Si les mot de passe correspondent, nous allons créer un Json Web Token
+- Nous enregistrons ce token dans un `cookie` que nous enverrons en tant que réponse.
 
 La première étape est de créer un composant React qui va nous servir de page.
 Nous lui avons donné le nom de `Articles.jsx` :
