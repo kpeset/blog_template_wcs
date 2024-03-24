@@ -12,26 +12,45 @@ Rappelez-vous, nous avons déjà créer la table user et son manager/controller 
 
 ## Hashage du password
 
-### Création de la route 
+### Création du middlewaire
 
-La première étape est de créer un composant React qui va nous servir de page.
-Nous lui avons donné le nom de `Articles.jsx` :
+Nous allons créer un middleware qui va hasher le password avant de l'enregistrer dans la base de données.
+Dans le dossier `services` nous allons créer le fichier `auth.js` et utiliser le code suivant :
 
 <br />
 
-```jsx
-export default function Articles() {
-  return (
-    <>
-      <h1>Liste des articles :</h1>
-    </>
-  );
-}
+```js
+const argon2 = require("argon2");
+
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 19 * 2 ** 10,
+  timeCost: 2,
+  parallelism: 1,
+};
+
+const hashPassword = async (req, res, next) => {
+  try {
+    const { password } = req.body;
+    const hashedPassword = await argon2.hash(password, hashingOptions);
+
+    req.body.hashedPassword = hashedPassword;
+    delete req.body.password;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { hashPassword };
+
 ```
 
 <br />
 
-Pour le moment nous n'avons pas besoin de faire grand chose de plus. Nous avons simplement crée la structure de la page. Nous la modifirons plus tard.
+Dans ce code nous allons d'abord créer un objet `hashingOptions` qui contient les paramètres de hashage. Ici nous n'avons rien inventé. Cela provient directement de la documentation.
+Puis nous avons crée la fonction 
 
 ### Création de la route
 
