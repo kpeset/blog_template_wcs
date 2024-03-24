@@ -50,132 +50,47 @@ module.exports = { hashPassword };
 <br />
 
 Dans ce code nous allons d'abord créer un objet `hashingOptions` qui contient les paramètres de hashage. Ici nous n'avons rien inventé. Cela provient directement de la documentation.
-Puis nous avons crée la fonction 
+Puis nous avons crée la fonction `hashPassword` qui va dans un premier temps récupérer le password du `req.body` puis utiliser la fonction `hash` de argon2.
+Cette fonction prend deux paramètres :
+- le mot de passe
+- les options de hashage
 
-### Création de la route
+Le résultat de cette fonction sera enregistré dans le `req.body` sous le nom de `hashedPassword`.
 
-Maintenant que notre page est crée il faut créer la route côté front :
 
-<br />
+### Modification de la route
 
-```jsx
-import Articles from "./pages/Articles";
-
-const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/articles",
-        element: <Articles />,
-      },
-    ],
-  },
-]);
-```
-
-<br />
-
-**RAPPEL :** Ici il s'agit d'un léger rappel concernant les routes. N'oubliez pas de configurer le `Outlet` dans `App.jsx`. Observez bien le code si vous ne souvenez plus comment créer des routes sur React. Je vous invite aussi à revoir le workshop sur le sujet.
-
-<br />
-
-Maintenant que notre route est crée, nous allons exécuter notre requête API au chargement de la page. Nous allons rajouter un `loader` (n'oubliez pas d'installer / importer axios) :
-
-<br />
-
-```jsx
-     {
-        path: "/articles",
-        element: <Articles />,
-        loader: () =>
-          axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/articles`)
-            .then((response) => response.data),
-      },
-```
-
-<br />
-
-Le loader va exécuter une requête axios de la façon classique : `axios.get(url_du_backend).then(faire_quelque_chose_si_pas_erreur)`.
-
-Ici pour l'url, je récupère d'abord l'url dans le .env :
-
-<br />
-
-```
-VITE_BACKEND_URL=http://localhost:3310
-```
-
-<br />
-
-Et j'ajoute ensuite le chemin exacte. Ce qui donne :
+Maintenant que notre middleware est crée il faut l'incorporer à notre route côté express :
 
 <br />
 
 ```js
-`${import.meta.env.VITE_BACKEND_URL}/api/articles`;
+router.post("/users", authMiddlewares.hashPassword, userControllers.add);
 ```
 
 <br />
 
-Puis dans le `then` nous retournons la propriété `data` de notre response.
-
-**RAPPEL :** Si à ce moment là vous êtes perdus, je vous invite à relire le workshop sur le router ou a revoir les vidéos **React : Introduction aux requêtes API et React : Axios (router, useEffect)**.
-
-### Récupération des articles
-
-Maintenant il ne nous reste plus qu'à afficher le résultat de la requête sur notre page.
-Nous avons crée un composant `Article.jsx` :
+Nous utilisons d'abord la fonction `hashPassword` de notre middleware avant d'éxecuter la fonction `add` de notre controller.
 
 <br />
 
-```jsx
-export default function Article({ article }) {
-  return (
-    <article>
-      <h3>{article.title}</h3>
-      <h5>{article.username}</h5>
-      <p>{article.content}</p>
-    </article>
-  );
-}
+### Modification du controller
+
+La dernière étape côté backend est de modifier le controller.
+Jusqu'à maintenant, c'était le `req.body.password` qui était enregistré dans la BDD. Mais rappelez vous que dans le middleware, nous avons enregistré le mot de passe hashé dans `req.body.hashedPassword`.
+Nous allons donc l'ajouter à l'objet `userInfos` de la fonction `add` du controller :
+
+<br />
+
+```js
+  const userInfos = {
+    email: req.body.email,
+    password: req.body.hashedPassword,
+    username: req.body.username,
+  };
 ```
 
-<br />
-
-Notre composant va, de la façon la plus classique recevoir des props.
-Nous appelerons ce composant sur la page `Articles.jsx` autant de fois qu'il y aura de résultats dans la requête grace à la méthode `map` :
-
-<br />
-
-```jsx
-import { useLoaderData } from "react-router-dom";
-import Article from "../components/Article";
-
-export default function Articles() {
-  const articles = useLoaderData();
-
-  return (
-    <>
-      <h1>Liste des articles :</h1>
-      {articles.map((article) => (
-        <Article key={article.id} article={article} refreshPage={refreshPage} />
-      ))}
-    </>
-  );
-}
-```
-
-<br />
-
-Comme d'habitude, nous avons utilisé le hook `useLoaderData` afin de récupérer ce que nous a retourné le `loader` dans la route de `main.jsx`.
-
-## Création d'un article
+## Création de la page Register sur React
 
 ### Création du formulaire
 
