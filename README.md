@@ -94,123 +94,74 @@ Nous allons donc l'ajouter à l'objet `userInfos` de la fonction `add` du contro
 
 ### Création du formulaire
 
-La première chose à faire est de créer la page `CreateArticle` et de l'ajouter à nos routes dans `Main.jsx`.
-Dans cette page, nous allons créer le formulaire suivant :
+Après avoir crée la page `Register.jsx` et de l'avoir ajouté à la route, nous allons créer un formulaire de base :
+
+<br />
 
 ```jsx
-export default function CreateArticle() {
-  return (
     <>
-      <h1>Créer un article</h1>
-      <form>
-        <label htmlFor="title">Titre de l&apos;article :</label>
-        <input
-          type="text"
-          name="title"
-          onChange={handleChangeForm}
-          id="title"
-        />
-        <label htmlFor="content">Contenu de l&apos;article :</label>
-        <textarea name="content" id="content" />
+      <h1>Page de register</h1>
+      <form onSubmit={submitForm}>
+        <label>Email</label>
+        <input type="email" onChange={handleChangeEmail} />
+        <label>Password</label>
+        <input type="password" onChange={handleChangePassword} />
+        <label>Username</label>
+        <input type="text" onChange={handleChangeUsername} />
         <input type="submit" />
       </form>
     </>
-  );
-}
 ```
 
-Nous devons à présent enregistrer dans un `state` (état), ce que l'on va écrire dans les différents champs à l'aide d'une fonction.
-Nous allons d'abord commencer par le `state` :
+Comme dans les formulaires que l'on a fait précédemment, nous allons créer trois fonctions pour récupérer :
+- la valeur de l'input qui concerne l'émail
+- la valeur de l'input qui concerne le password
+- la valeur de l'input qui concerne le username
 
 <br />
 
 ```jsx
-const [form, setForm] = useState({
-  title: "",
-  content: "",
-  userId: 1,
-});
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleChangeUsername = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handleChangePassword = (event) => {
+    setPassword(event.target.value);
+  };
 ```
 
 <br />
 
-Notre state `form` est un objet qui contient trois propriétés :
+Bien entendu, n'oubliez pas créer les states :
 
-- title
-- content
-- userId (donc la valeur par défaut est 1)
+<br /> 
 
-**Rappel :** `userId` est l'id de l'utilisateur qui va écrire l'article. Comme pour l'instant nous ne pouvons pas nous connecter, nous allons mettre par défaut le `userId` à 1.
-
-<br />
-
-Maintenant nous allons créer la fonction `handleChangeForm` qui va écouter ce qu'il se passe dans les champs et enregistrer son contenu dans le state `form` :
-
-<br />
-
-```jsx
-const handleChangeForm = (event) => {
-  setForm({
-    ...form,
-    [event.target.name]: event.target.value,
-  });
-};
+```js
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 ```
 
-<br />
-
-Cette fonction va changer le state `form` avec la fonction `setForm` qui prendre en paramètre un objet.
-Le `...form` permet de récupérer les propriétés et valeurs, ce qui nous permet de ne pas écraser à chaque fois les précédentes données.
-Ensuite nous avons `[event.target.name]` qui permet de nommer dynamiquement la propriété de notre objet par rapport au `name` du champ que subit l'action et `event.target.value` nous permet de récupérer la `value` du champ qui subit l'action.
+Ces states vont contenir la valeur des champs que nous allons envoyer dans la requête axios :
 
 <br />
 
-Il ne nous reste plus qu'à lier cette fonction à nos champs :
-
-<br />
-
-```jsx
-        <input
-          type="text"
-          name="title"
-          onChange={handleChangeForm}
-          id="title"
-        />
-        <textarea name="content" onChange={handleChangeForm} id="content" />
-
+```js
+  const submitForm = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3310/api/users/", {
+        email,
+        password,
+        username,
+      })
+      .then((response) => console.info(response))
+      .catch((error) => console.error(error));
+  };
 ```
 
-<br />
-
-### Envoie du formulaire au backend
-
-<br />
-
-Maintenant que nous arrivons à enregistrer les données dans un `state`, il ne nous reste plus qu'à l'envoyer au backend.
-Nous allons créer la fonction suivante :
-
-<br />
-
-```jsx
-const submitArticle = (event) => {
-  event.preventDefault();
-  axios
-    .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
-    .then((response) => console.info(response))
-    .catch((err) => console.error(err));
-};
-```
-
-Cette fonction permet d'utiliser la méthode `post` d'axios sur l'URL provenant du `.env`. En deuxième paramètre à la fonction `post`, nous envoyons ce qu'il y a dans le state `form`.
-
-Il ne faut pas oublier d'exécuter cette fonction à la soumission du formulaire :
-
-<br />
-
-```jsx
-      <form onSubmit={submitArticle}>
-```
-
-<br />
-
-Et voilà ! Maintenant depuis le front, vous êtes capables d'intéragir avec le back ! 🚀
+Et voilà ! Un utilisateur peut maintenant créer son compte !
