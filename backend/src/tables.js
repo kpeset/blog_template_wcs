@@ -5,10 +5,12 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ArticleManager = require("./models/ArticleManager");
 const UserManager = require("./models/UserManager");
+const MessageManager = require("./models/MessageManager");
 
 const managers = [
   ArticleManager,
   UserManager,
+  MessageManager,
   // Add other managers here
 ];
 

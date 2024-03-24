@@ -14,6 +14,8 @@ const authMiddlewares = require("./services/auth");
 
 const authControllers = require("./controllers/authControllers");
 
+const messageControllers = require("./controllers/messageControllers");
+
 router.get("/articles", authMiddlewares.verifyToken, articleControllers.browse);
 
 router.get("/articles/:id/", articleControllers.read);
@@ -32,5 +34,10 @@ router.put("/users/:id", userControllers.update);
 router.post("/users", authMiddlewares.hashPassword, userControllers.add);
 
 router.post("/login", authControllers.login);
+
+router.get("/messages", messageControllers.getMessagesBetweenUsers);
+router.get("/messages/:id", messageControllers.getConversations);
+
+router.post("/messages", messageControllers.sendMessage);
 
 module.exports = router;
