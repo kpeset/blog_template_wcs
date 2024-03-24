@@ -1,11 +1,14 @@
-# React - Lier le front et le back
+# Express & React : Login
 
 ## Objectif de l'atelier
 
-Dans cet atelier, nous avons crée deux pages côté frontend :
+Dans cet atelier, nous allons nous occuper de la partie **Login** pour qu'un utilisateur inscrit puisse se connecter.
+Cela se fera en deux étapes principales :
 
-- lister / supprimer les articles
-- création d'un article
+- création de la logique dans le backend
+- création de la page côté frontend
+
+Nous allons avoir besoin du package npm [**jsonwebtoken**](https://www.npmjs.com/package/jsonwebtoken?activeTab=readme)
 
 ## Lister les articles
 
