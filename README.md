@@ -36,3 +36,4 @@ Voici le détail de chacune des branches :
 - **step_02** : [**Express - Création des middlewares (avec JOI)**](https://github.com/kpeset/blog_template_wcs/tree/step_02)
 - **step_03** : [**Express - Finalisation du CRUD pour les articles (update & delete)**](https://github.com/kpeset/blog_template_wcs/tree/step_03)
 - **step_04** : [**React - Lier le front et le back (création / suppression d'articles)**](https://github.com/kpeset/blog_template_wcs/tree/step_04)
+- **step_05** : [**Express & React - Hashage de password & Création page Register avec React**](https://github.com/kpeset/blog_template_wcs/tree/step_05)
