@@ -1,4 +1,4 @@
-# Express & React - Hashage de password & Création compte avec React
+# Express & React - Hashage de password & Création page Register avec React
 
 ## Objectif de l'atelier
 
