@@ -7,7 +7,7 @@ class ArticleManager extends AbstractManager {
 
   async readAll() {
     const [rows] = await this.database.query(
-      `select article.id, article.title, article.content, article.creation_datetime, user.username from ${this.table} JOIN user ON article.user_id = user.id`
+      `select article.id, article.title, article.content, article.image, article.creation_datetime, user.username from ${this.table} JOIN user ON article.user_id = user.id`
     );
     return rows;
   }
@@ -22,8 +22,8 @@ class ArticleManager extends AbstractManager {
 
   async create(article) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (title, content, user_id, creation_datetime) VALUES (?, ?, ?, NOW())`,
-      [article.title, article.content, article.userId]
+      `INSERT INTO ${this.table} (title, content, user_id, image, creation_datetime) VALUES (?, ?, ?, ?, NOW())`,
+      [article.title, article.content, article.userId, article.image]
     );
     return rows;
   }

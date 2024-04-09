@@ -20,10 +20,13 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
+  console.info("REQ FILE", req.file);
+
   const articleInfos = {
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,
+    image: req.file.filename,
   };
 
   try {
@@ -70,10 +73,21 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const success = async (req, res, next) => {
+  try {
+    res.json({
+      message: "coucou",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
   add,
   update,
   destroy,
+  success,
 };

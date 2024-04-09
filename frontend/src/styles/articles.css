@@ -19,3 +19,8 @@ form > textarea {
   width: 75%;
   padding: 1rem;
 }
+
+img {
+  width: 24rem;
+  height: auto;
+}

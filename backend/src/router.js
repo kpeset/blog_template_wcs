@@ -16,12 +16,16 @@ const authControllers = require("./controllers/authControllers");
 
 const messageControllers = require("./controllers/messageControllers");
 
-router.get("/articles", authMiddlewares.verifyToken, articleControllers.browse);
+const uploadMiddlewares = require("./middlewares/upload");
+
+// router.get("/articles", authMiddlewares.verifyToken, articleControllers.browse);
+router.get("/articles", articleControllers.browse);
 
 router.get("/articles/:id/", articleControllers.read);
 
 router.post(
   "/articles",
+  uploadMiddlewares.uploadFile,
   articleMiddlewares.validateArticleFields,
   articleControllers.add
 );

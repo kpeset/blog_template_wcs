@@ -3,6 +3,7 @@
 const express = require("express");
 
 const app = express();
+const path = require("path");
 
 // Configure it
 
@@ -33,6 +34,10 @@ app.use(
     credentials: true,
   })
 );
+
+app.use("/public/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../", req.originalUrl));
+});
 
 /* ************************************************************************* */
 
